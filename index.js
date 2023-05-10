@@ -6,7 +6,7 @@ import './models/Asociations.js'
 
 const main = async () => {
   try {
-    await conectionSequelize.sync({ force: false })
+    await conectionSequelize.sync({ force: true })
     if (+process.argv[2]) fakeData()
 
     app.listen(app.get('port'), () => {

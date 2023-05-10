@@ -7,7 +7,7 @@ const categorys = [
   },
   {
     id: 2,
-    name: 'suspendo'
+    name: 'suspenso'
   },
   {
     id: 3,
