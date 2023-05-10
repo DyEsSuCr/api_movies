@@ -2,12 +2,12 @@ import { config } from 'dotenv'
 
 config()
 
-const PORT = process.env.PORT
-const DB_USER = process.env.DB_USER
-const DB_PWD = process.env.DB_PWD
-const DB_NAME = process.env.DB_NAME
-const DB_PORT = process.env.DB_PORT
-const DB_HOST = process.env.DB_HOST
+const PORT = process.env.PORT || 3000
+const DB_USER = process.env.DB_USER || 'root'
+const DB_PWD = process.env.DB_PWD || 'password'
+const DB_NAME = process.env.DB_NAME || 'database'
+const DB_PORT = process.env.DB_PORT || '3306'
+const DB_HOST = process.env.DB_HOST || 'mysql'
 
 export const env = {
   DB_USER,
