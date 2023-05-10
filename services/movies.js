@@ -1,24 +1,29 @@
 import { Op } from 'sequelize'
 import { Movie, Category } from '../models/index.js'
 
-export const findMovies = async ({ name = '', category = '', order, limit = 2, page = 1 }) => {
+export const findMovies = async ({ name, category, order, limit = 2, page = 1 }) => {
   order = order ? 'DESC' : 'ASC'
-  const whereClause = {}
+
+  const options = {
+    where: {},
+    include: [],
+    order: [
+      ['premiere', order]
+    ],
+    attributes: {
+      exclude: ['categoryId']
+    },
+    offset: limit * (page - 1)
+  }
 
   if (name) {
-    whereClause.name = {
-      [Op.eq]: name
+    options.where.name = {
+      [Op.like]: `%${name}%`
     }
   }
 
-  const attributes = {
-    exclude: ['categoryId']
-  }
-
-  const include = []
-
   if (category) {
-    include.push({
+    options.include.push({
       model: Category,
       where: {
         name: {
@@ -28,19 +33,9 @@ export const findMovies = async ({ name = '', category = '', order, limit = 2, p
     })
   }
 
-  const orderClause = [
-    ['premiere', order]
-  ]
-
-  const offset = limit * (page - 1)
-
   const { rows, count } = await Movie.findAndCountAll({
-    where: whereClause,
-    attributes,
-    include,
-    order: orderClause,
-    limit,
-    offset
+    ...options,
+    limit
   })
 
   const totalPages = Math.ceil(count / limit)
