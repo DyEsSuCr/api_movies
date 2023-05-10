@@ -31,7 +31,7 @@ export const getUserSeenMovie = async ({ params }, res) => {
 export const postUser = async ({ body }, res) => {
   try {
     const user = await insertUser(body)
-    response(res, 200, user)
+    response(res, 201, user)
   } catch (err) {
     handleHttp(res, 'postUser', err)
   }

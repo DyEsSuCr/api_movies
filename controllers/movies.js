@@ -32,7 +32,7 @@ export const getNewMovies = async (_, res) => {
 export const postMovie = async ({ body }, res) => {
   try {
     const movie = await insertMovie(body)
-    response(res, 200, movie)
+    response(res, 201, movie)
   } catch (err) {
     handleHttp(res, 'postMovie', err)
   }

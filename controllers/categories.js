@@ -22,7 +22,7 @@ export const getCategory = async ({ params }, res) => {
 export const postCategory = async ({ body }, res) => {
   try {
     const category = await insertCategory(body)
-    response(res, 200, category)
+    response(res, 201, category)
   } catch (err) {
     handleHttp(res, 'postCategory', err)
   }
