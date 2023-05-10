@@ -12,4 +12,4 @@ export const User = conectionSequelize.define('users', {
     allowNull: false,
     unique: true
   }
-})
+}, { timestamps: false })

@@ -7,4 +7,4 @@ export const Seen = conectionSequelize.define('seens', {
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4
   }
-})
+}, { timestamps: false })

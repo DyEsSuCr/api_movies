@@ -12,4 +12,4 @@ export const Category = conectionSequelize.define('categories', {
     allowNull: false,
     unique: true
   }
-})
+}, { timestamps: false })

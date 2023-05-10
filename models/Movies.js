@@ -17,4 +17,4 @@ export const Movie = conectionSequelize.define('movies', {
     allowNull: false,
     unique: false
   }
-})
+}, { timestamps: false })
