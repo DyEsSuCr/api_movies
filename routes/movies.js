@@ -3,9 +3,9 @@ import { getMovie, getMovies, getNewMovies, postMovie } from '../controllers/mov
 
 const router = Router()
 
-router.get('/', getMovies)
+router.get('/news', getNewMovies)
 router.get('/:id', getMovie)
 router.post('/', postMovie)
-router.get('/news/news', getNewMovies)
+router.get('/', getMovies)
 
 export default router
