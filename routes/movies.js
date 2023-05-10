@@ -8,4 +8,4 @@ router.get('/:id', getMovie)
 router.post('/', postMovie)
 router.get('/', getMovies)
 
-export default router
+export { router }

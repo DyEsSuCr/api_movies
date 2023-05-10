@@ -5,4 +5,4 @@ const router = Router()
 
 router.post('/', postSeenMovie)
 
-export default router
+export { router }

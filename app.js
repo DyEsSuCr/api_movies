@@ -4,10 +4,7 @@ import cors from 'cors'
 
 // NOTE: Local
 import { env } from './config.js'
-import userRoutes from './routes/users.js'
-import moviesRoutes from './routes/movies.js'
-import categoriesRoutes from './routes/categories.js'
-import seensRoutes from './routes/seeds.js'
+import { router } from './routes/index.js'
 
 // NOTE: App Init
 const app = express()
@@ -20,10 +17,7 @@ app.use(express.json())
 app.use(cors())
 
 // NOTE: Routes
-app.use('/api/v1/users', userRoutes)
-app.use('/api/v1/movies', moviesRoutes)
-app.use('/api/v1/categories', categoriesRoutes)
-app.use('/api/v1/seens', seensRoutes)
+app.use(router)
 
 app.use((req, res) => {
   res.status(404).json({

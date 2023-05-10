@@ -7,4 +7,4 @@ router.get('/', getCategories)
 router.get('/:id', getCategory)
 router.post('/', postCategory)
 
-export default router
+export { router }
