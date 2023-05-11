@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 
 // NOTE: Local
-import { env } from './config.js'
+import env from './config.js'
 import { router } from './routes/index.js'
 
 // NOTE: App Init
